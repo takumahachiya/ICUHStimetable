@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ICUHS時刻表</title>
+  <title>ICUHS LIVE Transit Guide</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -86,7 +86,7 @@
   </style>
 </head>
 <body>
-  <h1>スクールバス時刻表</h1>
+  <h1>ICUHS LIVE Transit Guide</h1>
 
   <div class="clock" id="clock">現在時刻を取得中...</div>
 
@@ -216,7 +216,7 @@
 
       nextTimes.sort((a, b) => a.minutes - b.minutes);
       const next = nextTimes[0];
-      document.getElementById("nextBus").textContent = `次のバスは「${next.type}」で ${next.time} に出発します（あと ${next.remaining} 分）。`;
+      document.getElementById("nextBus").textContent = `最短時刻での出発は「${next.type}」 ${next.time} です（あと ${next.remaining} 分）。`;
     }
 
     function updateTimetableTable() {
