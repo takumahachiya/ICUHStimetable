@@ -73,6 +73,14 @@
       background-color: #e0f8e0;
       font-weight: bold;
     }
+    
+    .icuhs-bus {
+      background-color: #fff2cc; /* 明るい黄色 */
+    }
+
+    .shinkoganei-bus {
+      background-color: #d9eaf7; /* 明るい青 */
+    }
 
     @media (max-width: 500px) {
       body {
@@ -86,16 +94,17 @@
   </style>
 </head>
 <body>
-  <h1>ICUHS Real-time Transit Guide</h1>
+  <h1>マジマがつくった<br> ICUHS Real-time Transit Guide</h1>
 
   <div class="clock" id="clock">現在時刻を取得中...</div>
-
+  
 <div class="checkboxes" id="checkboxes">
   <label><input type="checkbox" value="武蔵境発スクールバス" checked onchange="updateBusInfo()"> 武蔵境発スクールバス</label>
-  <label><input type="checkbox" value="武蔵境発是政線" checked onchange="updateBusInfo()"> 武蔵境発是政線</label>
+  <label><input type="checkbox" value="武蔵境発是政線" onchange="updateBusInfo()"> 武蔵境発是政線</label>
   <label><input type="checkbox" value="ICUHS発スクールバス" checked onchange="updateBusInfo()"> ICUHS発スクールバス</label>
-  <label><input type="checkbox" value="新小金井発是政線" checked onchange="updateBusInfo()"> 新小金井発是政線</label>
+  <label><input type="checkbox" value="新小金井発是政線" onchange="updateBusInfo()"> 新小金井発是政線</label>
 </div>
+
 
   <div class="next-bus" id="nextBus">次のバスを計算中...</div>
 
@@ -252,6 +261,13 @@
 
         const tr = document.createElement("tr");
         tr.classList.add("upcoming");
+        if (row.type === "ICUHS発スクールバス") {
+          tr.classList.add("icuhs-bus");
+        }
+        if (row.type === "新小金井発是政線") {
+          tr.classList.add("shinkoganei-bus");
+        }
+
 
         const tdType = document.createElement("td");
         const tdTime = document.createElement("td");
