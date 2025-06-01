@@ -204,8 +204,9 @@
     </div>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 
         // =======================================================================
         // TODO: ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
@@ -244,7 +245,7 @@
         googleLoginBtn.addEventListener('click', async () => {
             loginErrorMsgArea.textContent = ''; // エラーメッセージをクリア
             try {
-                await signInWithPopup(auth, provider);
+               await signInWithPopup(auth, provider);
             } catch (error) {
                 console.error("ログインエラー:", error);
                 if (error.code === 'auth/popup-closed-by-user') {
